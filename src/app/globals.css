@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Instrument+Serif:wght@400;500&display=swap');
+@import url('tldraw/tldraw.css');
+
+body {
+	font-family: 'Inter';
+	overscroll-behavior: none;
+}
+
+/* Target the white background of the tools dock */
+.tlui-toolbar__tools {
+    border-radius: 100px !important;
+    background: var(--color-background) !important;
+    margin-top: 100px !important;
+    padding: 8px !important;
+    border: 1px solid rgba(144, 144, 144, 0.1) !important;
+}
+
+/* Style the menu zone */
+.tlui-menu-zone {
+    background: var(--color-background) !important;
+    border-radius: 100px !important;
+    margin: 8px !important;
+    padding: 4px 12px !important;
+    border: 1px solid rgba(144, 144, 144, 0.1) !important;
+}
+
+.tlui-menu-zone .tlui-button {
+    border-radius: 100px !important;
+}
+
+.tlui-menu-zone .tlui-button:hover {
+    background: rgba(144, 144, 144, 0.1) !important;
+}
+
+/* Make tool buttons circular but smaller */
+.tlui-button__tool {
+    border-radius: 100% !important;
+    overflow: hidden !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    padding: 8px !important;
+    margin: 2px !important;
+}
+
+/* Make hover state circular */
+.tlui-button__tool:hover {
+    border-radius: 100% !important;
+    background: rgba(144, 144, 144, 0.1) !important;
+}
+
+/* Make active/selected state circular */
+.tlui-button__tool[data-state="selected"],
+.tlui-button__tool[aria-checked="true"],
+.tlui-button__tool[aria-selected="true"] {
+    border-radius: 100% !important;
+    background: var(--color-selected) !important;
+}
+
+/* Style the style panel */
+.tlui-style-panel {
+    border-radius: 20px !important;
+    background: var(--color-background) !important;
+    border: 1px solid rgba(144, 144, 144, 0.1) !important;
+}
+
+.tlui-style-panel__section__common {
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    background: var(--color-background) !important;
+}
+
+.tlui-style-panel button {
+    border-radius: 12px !important;
+}
+
+.tlui-style-panel .tlui-button[data-state="selected"] {
+    border-radius: 12px !important;
+}
+
+.tlui-style-panel button:hover:not([disabled]) {
+    background: rgba(144, 144, 144, 0.1) !important;
+}
+
+/* Make the active/selected state rounded */
+.tlui-toolbar__tools button[data-state="selected"],
+.tlui-toolbar__tools .tlui-button[aria-selected="true"],
+.tlui-toolbar__tools .tlui-button[data-state="selected"] {
+    border-radius: 100px !important;
+    overflow: hidden !important;
+}
+
+/* Hide tldraw watermark */
+a[href*="tldraw.dev"] {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Add canvas watermark */
+.tlui-layout::before {
+    content: 'built for Outlier Hackathon' !important;
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    font-family: 'Instrument Serif', serif !important;
+    font-size: 42px !important;
+    font-weight: 400 !important;
+    font-style: italic !important;
+    color: var(--color-text) !important;
+    opacity: 0.05 !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+    user-select: none !important;
+}
+
+/* Update the bottom right text */
+.tlui-layout::after {
+    content: ' ' !important;
+    position: fixed !important;
+    bottom: 10px !important;
+    right: 10px !important;
+    font-family: 'Instrument Serif', serif !important;
+    font-size: 12px !important;
+    font-style: italic !important;
+    color: var(--color-text) !important;
+    opacity: 0.5 !important;
+    pointer-events: none !important;
+    z-index: 1000 !important;
+}
+
+/* Hide bottom right text on smaller screens */
+@media (max-width: 768px) {
+    .tlui-layout::after {
+        display: none !important;
+    }
+}
+
+/* Remove previous attempts */
+.tlui-toolbar-back,
+.tlui-button-grid,
+.tlui-toolbar,
+.tlui-toolbar__inner {
+    border-radius: 0 !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+}
+
+/* Style the dropdown menu */
+.tlui-menu {
+    background: var(--color-background) !important;
+    border-radius: 16px !important;
+    padding: 8px !important;
+    backdrop-filter: blur(10px) !important;
+    animation: slideIn 0.2s ease-out !important;
+    transform-origin: top center !important;
+    box-shadow: var(--shadow-2) !important;
+    border: none !important;
+}
+
+.tlui-menu .tlui-button__menu {
+    border-radius: 8px !important;
+    margin: 2px 4px !important;
+    padding: 8px 12px !important;
+}
+
+.tlui-menu .tlui-button__menu:hover {
+    background: rgba(144, 144, 144, 0.1) !important;
+}
+
+.tlui-menu__group {
+    padding: 4px !important;
+}
+
+.tlui-menu__submenu__trigger {
+    width: calc(100% - 8px) !important;
+}
+
+/* Style the popover content */
+.tlui-popover__content {
+    background: var(--color-background) !important;
+    border-radius: 16px !important;
+    padding: 8px !important;
+    backdrop-filter: blur(10px) !important;
+    animation: scaleIn 0.2s ease-out !important;
+    transform-origin: top center !important;
+    box-shadow: var(--shadow-2) !important;
+    border: none !important;
+}
+
+.tlui-actions-menu {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    gap: 4px !important;
+    padding: 4px !important;
+}
+
+.tlui-actions-menu .tlui-button {
+    border-radius: 8px !important;
+}
+
+.tlui-actions-menu .tlui-button:hover:not([disabled]) {
+    background: rgba(144, 144, 144, 0.1) !important;
+}
+
+.tlui-actions-menu .tlui-button[disabled] {
+    opacity: 0.4 !important;
+}
+
+/* Style submenu */
+.tlui-menu__submenu {
+    animation: slideIn 0.2s ease-out !important;
+}
+
+/* Animation keyframes */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Add transition for hover effects */
+.tlui-button {
+    transition: background-color 0.2s ease-out !important;
+}
+
+/* Style mobile toolbar controls */
+.tlui-toolbar__extras__controls {
+    background: var(--color-background) !important;
+    border-radius: 100px !important;
+    padding: 4px 8px !important;
+    border: 1px solid rgba(144, 144, 144, 0.1) !important;
+    gap: 4px !important;
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 1000 !important;
+    margin-bottom: 60px !important;
+}
+
+.tlui-toolbar__extras__controls .tlui-button {
+    border-radius: 100% !important;
+    width: 36px !important;
+    height: 36px !important;
+    padding: 8px !important;
+}
+
+.tlui-toolbar__extras__controls .tlui-button:hover:not([disabled]) {
+    background: rgba(144, 144, 144, 0.1) !important;
+}
+
+.tlui-toolbar__extras__controls .tlui-button[disabled] {
+    opacity: 0.4 !important;
+}
+
+/* Hide insert embed option */
+[data-testid="main-menu.insert-embed"],
+button[title="Insert embed — Ctrl I"] {
+    display: none !important;
+}
+
+/* Hide keyboard shortcuts button and UI */
+[data-testid="main-menu.keyboard-shortcuts-button"],
+[data-testid="keyboard-shortcuts-dialog"],
+button[title="Keyboard shortcuts"] {
+    display: none !important;
+}
+
+/* Style zoom controls and minimap toggle */
+.tlui-navigation-panel {
+    position: fixed !important;
+    left: 8px !important;
+    bottom: 8px !important;
+    background: var(--color-background) !important;
+    border-radius: 100px !important;
+    padding: 4px 8px !important;
+    border: 1px solid rgba(144, 144, 144, 0.1) !important;
+    display: flex !important;
+    gap: 4px !important;
+}
+
+.tlui-navigation-panel .tlui-buttons__horizontal {
+    display: flex !important;
+    gap: 4px !important;
+    background: var(--color-background) !important;
+    border-radius: 100px !important;
+}
+
+.tlui-zoom-menu__button__pct {
+    min-width: 64px !important;
+    height: 32px !important;
+    border-radius: 100px !important;
+    padding: 0 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: var(--color-text) !important;
+}
+
+.tlui-navigation-panel__toggle {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 100px !important;
+    padding: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.tlui-navigation-panel .tlui-button:hover:not([disabled]) {
+    background: rgba(144, 144, 144, 0.1) !important;
+}
+
+.tlui-navigation-panel .tlui-button:active:not([disabled]) {
+    background: rgba(144, 144, 144, 0.2) !important;
+}
+
+/* Remove the previous navigation zone styles that weren't working */
+.tlui-navigation-zone {
+    display: none !important;
+}
+
+/* Dark mode overrides */
+[data-theme='dark'] .tlui-toolbar__tools,
+[data-theme='dark'] .tlui-menu-zone,
+[data-theme='dark'] .tlui-style-panel,
+[data-theme='dark'] .tlui-menu,
+[data-theme='dark'] .tlui-toolbar__extras__controls,
+[data-theme='dark'] .tlui-navigation-panel,
+[data-theme='dark'] .tlui-popover__content {
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: var(--shadow-2) !important;
+}
+
+/* Define shadows and colors for light/dark mode */
+:root {
+    --shadow-1: 0 2px 12px rgba(0, 0, 0, 0.1);
+    --shadow-2: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --color-text: #000000;
+    --color-background: #ffffff;
+}
+
+[data-theme='dark'] {
+    --shadow-1: 0 2px 12px rgba(0, 0, 0, 0.3);
+    --shadow-2: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --color-text: #ffffff;
+    --color-background: #1a1a1a;
+}
