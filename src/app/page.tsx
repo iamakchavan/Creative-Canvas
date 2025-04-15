@@ -1,11 +1,15 @@
 'use client'
-import { Tldraw } from 'tldraw'
+import { Editor, Tldraw } from 'tldraw'
 
 export default function Home() {
 	return (
 		<main>
 			<div style={{ position: 'fixed', inset: 0 }}>
-				<Tldraw />
+				<Tldraw
+					onMount={(editor: Editor) => {
+						editor.updateInstanceState({ isGridMode: true })
+					}}
+				/>
 			</div>
 		</main>
 	)
